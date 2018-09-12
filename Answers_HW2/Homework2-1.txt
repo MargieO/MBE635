@@ -1,0 +1,73 @@
+###1. Without using a text editor examine the contents of the file HapMap.fas.txt
+
+    ###- How many lines does this file contain?
+
+		wc -l HapMap.fas.txt 
+		
+ 		 378672 HapMap.fas.txt
+
+    ###- How many characters?    (Hint: check out the options of wc)
+
+		wc -m HapMap.fas.txt 
+		
+ 		15503584 HapMap.fas.txt
+
+
+    ###- What is the first line of this file?    (Hint: read the man page of head)
+
+		head -1 HapMap.fas.txt 
+		
+		>TP1_query_64
+
+    ###- What are the last 3 lines?    (Hint: read the man page of tail)
+
+		tail -3 HapMap.fas.txt
+		 
+		CGATTTTTTTTTTTTATCAAAAATGTTATTTTTCTTATTTTGCCGCTGTCTTAAATGGCCCGCT
+		>TP95869_hit_64
+		CGATTTTTTTTTTTTATCAAAAATGTTATTTTTCTTATTTTGCCGCTGTCTTAAATGGCCCTCT
+
+    ###- How many sequences are in the file?    (Hint: use grep)
+
+		grep '^[AGCT]\{1,\}$' HapMap.fas.txt > HapMapSeq
+		wc -l HapMapSeq 
+		
+		189336 HapMapSeq
+		 
+		189336 sequences
+
+###2. Using the file, grep_data.txt, write a series of grep statements that do the following:
+
+  ###Print all lines that contain a phone number with an extension (the letter x or X followed by four digits).
+  
+  	grep '[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\} x[0-9]\{4\}' grep_data.txt
+
+  ###Print all lines that begin with three digits followed by a blank using the repetition specifier ({})
+  
+  	grep '^[0-9]\{3\} ' grep_data.txt 
+
+  ###Print all lines containing a vowel (a, e, i, o, or u) followed by a single character followed by the same vowel again. Thus, it will find “eve” or “adam” but not “vera”. Hint: \( and \).
+
+	grep '\([aeiouAEIOU]\)[a-zA-Z]\1' grep_data.txt
+
+  ###Print all lines that do not begin with a capital S.
+
+	grep '[^S].*$' grep_data.txt
+
+###Write grep statements that use command-line options along with the pattern to do the following:
+
+  ###Print all lines that contain CA in either uppercase or lowercase.
+  
+  		grep '[Cc][Aa]' grep_data.txt 
+
+  ###Print all lines that contain an email address (they have an @ in them), preceded by the line number.
+  
+  		grep -n @ grep_data.txt
+
+  ###Print all lines that do not contain the word Sep. (including the period).
+  
+  		grep '[^Sep.]' grep_data.txt 
+
+  ###Print all lines that contain the word de as a whole word.
+  
+  		grep ' de ' grep_data.txt 
