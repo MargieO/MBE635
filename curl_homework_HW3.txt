@@ -1,0 +1,31 @@
+Write a curl command to retrieve the Alabama tree boundaries csv file from the Forest Inventory and Analysis Database,
+ https://apps.fs.usda.gov/fia/datamart/
+
+Now add to this command to determine how many words are in this file.
+
+Now retrieve data from Alabama, Arkansas, Florida and Massachusetts and count the words
+
+Save these to individually named files in one step.
+
+Write a command to figure out what all of these numbers are.
+
+-------------
+Now explore other files a little bit:
+
+How many species of pine trees were used for this entire database?
+
+Where were Cladonia squamosa in the fungal database?
+
+use grep search term with -n to get the line number
+
+---------------
+Look at the help manual for curl and tell me how you would only download a file if it had been 
+updated either before or after a certain data.
+
+$ curl -z 21-Dec-11 http://www.example.com/yy.html
+
+--------------------------
+Find a database that might be useful in your research and write the commmand to retrieve the useful datafiles
+
+
+
